@@ -10,6 +10,6 @@ Wellbeing is not just a mental health app; it's a companion on your journey to a
 - **Empowering Tips:** Access over 100 tips to enhance your mental well-being.
 - **Mood Tracking:** Gain insights into your emotional well-being and manage your mood effectively.
 - **Emergency Call Feature:** In critical situations, easily launch direct calls for emergencies or suicide prevention.
-- - **Simplicity at its Best:** The user-friendly design ensures a seamless experience, making navigation intuitive for users of all levels.
+- **Simplicity at its Best:** The user-friendly design ensures a seamless experience, making navigation intuitive for users of all levels.
 
 Embark on your wellness journey with our app's comprehensive mental health companion designed for simplicity, accessibility, and a happier, healthier you. Welcome to a world where your mental well-being takes center stage.
