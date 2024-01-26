@@ -1,4 +1,5 @@
 # Wellbeing App
+![final2](https://github.com/OussemaNehdi/Wellbeing/assets/157837589/61d2b1e4-f848-4aea-8b3e-1888ee9ffec6)
 
 **Introduction:**
 
