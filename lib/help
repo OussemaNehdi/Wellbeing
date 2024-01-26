@@ -1,0 +1,39 @@
+
+void callbackDispatcher() {
+  Workmanager().executeTask((task, inputData) async {
+    final List<String>? listString = inputData["listString"] as List<String>?;
+    if (listString != null && listString.isNotEmpty) {
+      String randomTip = listString[Random().nextInt(listString.length)];
+
+      FlutterLocalNotificationsPlugin notifications =
+          FlutterLocalNotificationsPlugin();
+      await notifications.initialize(
+        InitializationSettings(
+          android: AndroidInitializationSettings("@mipmap/ic_launcher"),
+        ),
+      );
+      notifications.show(
+        2,
+        "My app notification title",
+        "This is the notification body",
+        NotificationDetails(
+          android: AndroidNotificationDetails(
+            "channel_id",
+            "Channel Name",
+            importance: Importance.high,
+            icon: "@mipmap/ic_launcher",
+            styleInformation: BigTextStyleInformation(
+              randomTip,
+              contentTitle: "Don't forget to be grateful for",
+              summaryText: "Well beingx",
+            ),
+          ),
+        ),
+      );
+    } else {
+      print("listString is null or empty. No notification displayed.");
+    }
+
+    return Future.value(true);
+  });
+}
