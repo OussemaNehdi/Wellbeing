@@ -40,34 +40,6 @@ class _EntryPointState extends State<EntryPoint> {
     setState(() {});
   }
 
-  void fromOffToOn(bool value) async {
-    var status = await Permission.notification.status;
-
-    if (status.isPermanentlyDenied) {
-      // The user opted to never again see the permission request dialog for this
-      // app. The only way to change the permission's status now is to let the
-      // user manually enable it in the system settings.
-      openAppSettings();
-    } else if (status.isDenied) {
-      status = await Permission.notification.request();
-
-      if (status.isGranted) {
-        // Permission granted
-        areNotificationsEnabled = true;
-        print('Notification permission granted.');
-      } else {
-        // Permission denied permanently
-        areNotificationsEnabled = false;
-        print('Notification permission permanently denied.');
-        // Handle this case appropriately, e.g., by showing a snackbar or dialog
-        // that guides the user to app settings to enable notifications manually.
-      }
-    }
-    setState(() {
-      areNotificationsEnabled = true;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     var ob = myCustomNav(page);
