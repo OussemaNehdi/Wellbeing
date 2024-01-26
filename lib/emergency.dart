@@ -71,7 +71,8 @@ class _EmergencyState extends State<Emergency> {
                     childAspectRatio: 3,
                     crossAxisSpacing: 15.0,
                     mainAxisSpacing: 15.0,
-                    children: [//a class to make the simple call widget
+                    children: [
+                      //a class to make the simple call widget
                       _buildEmergencyItem(
                           '7133', Icons.supervisor_account, 'HelpCN'),
                       _buildEmergencyItem(
@@ -129,7 +130,8 @@ class _EmergencyState extends State<Emergency> {
     );
   }
 
-  Future<void> _makePhoneCall(String number) async {//launch the phone call
+  Future<void> _makePhoneCall(String number) async {
+    //launch the phone call
     if (await Permission.phone.request().isGranted) {
       await launch('tel:$number'); //launch is deprciated
     } else {

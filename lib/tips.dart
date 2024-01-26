@@ -11,7 +11,7 @@ class Tips extends StatefulWidget {
 class _TipsState extends State<Tips> {
   String _tip =
       'Loading...'; //added the loading just to make the experience better and give users a sense of
-                    // being excited for a tip while waiting
+  // being excited for a tip while waiting
 
   @override
   void initState() {
@@ -19,10 +19,11 @@ class _TipsState extends State<Tips> {
     _getRandomTip();
   }
 
-  Future<void> _getRandomTip() async { //todo make 100 tips isntead
+  Future<void> _getRandomTip() async {
+    //todo make 100 tips isntead
     // Simulate fetching a random tip from a data source
-    await Future.delayed(const Duration(
-        seconds: 1)); // Added a slight delay to make it more fun
+    await Future.delayed(
+        const Duration(seconds: 1)); // Added a slight delay to make it more fun
     final tips = [
       'Prioritize adequate sleep each night for improved mental resilience.',
       'Practice deep breathing exercises to reduce stress and promote relaxation.',

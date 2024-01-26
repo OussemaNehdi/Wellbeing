@@ -9,7 +9,8 @@ import 'popupcard.dart';
 //The entry point is basically the scaffold and the screens are the body of the scaffold ( my own method implementation to persist
 //the top app bar and the bottom navigation bar across different screens (I used Gnav bottom navigation bar for aesthetics) )
 
-bool areNotificationsEnabled = true; //the notification bell by default is false until the user accept the notification permission
+bool areNotificationsEnabled =
+    true; //the notification bell by default is false until the user accept the notification permission
 
 class EntryPoint extends StatefulWidget {
   const EntryPoint({super.key});
@@ -17,9 +18,9 @@ class EntryPoint extends StatefulWidget {
   State<EntryPoint> createState() => _EntryPointState();
 }
 
-
 class _EntryPointState extends State<EntryPoint> {
-  int page = 0; //by default the body is on the Grateful screen which is of index 0
+  int page =
+      0; //by default the body is on the Grateful screen which is of index 0
   String page_name = "I'm Grateful For";
 
   @override
@@ -28,48 +29,6 @@ class _EntryPointState extends State<EntryPoint> {
 
     getNotf();
     //setNotfParm();
-
-  }
-
-  void setNotfParm() async {//todo remove
-    // Check permission status
-    //await Permission.phone.request();//todo remove
-    await Permission.notification.request();
-    var status = await Permission.notification.status;
-    print(status);
-
-    if (status.isGranted) {
-      // Permission already granted
-      // Proceed with notification-related actions
-      print('Notification permission granted.');
-    } else if (status.isDenied) {
-      print("denieed");
-      // Permission denied
-      // Request permission
-      try{
-        status = await Permission.notification.request();
-        print("tried");
-      }catch(e){
-        print("SOMETHING SO BAD");
-      }
-
-
-      if (status.isGranted) {
-        // Permission granted
-        areNotificationsEnabled = true;
-        print('Notification permission granted.');
-      } else {
-        // Permission denied permanently
-        areNotificationsEnabled = false;
-        print('Notification permission permanently denied.');
-        // Handle this case appropriately, e.g., by showing a snackbar or dialog
-        // that guides the user to app settings to enable notifications manually.
-      }
-      setState(() {
-
-      });
-    }
-    else if (status.isPermanentlyDenied) {print("perma denied");}
   }
 
   Future<void> getNotf() async {
@@ -79,8 +38,8 @@ class _EntryPointState extends State<EntryPoint> {
         ? areNotificationsEnabled = true
         : areNotificationsEnabled = passage;
     setState(() {});
-
   }
+
   void fromOffToOn(bool value) async {
     var status = await Permission.notification.status;
 
@@ -89,8 +48,7 @@ class _EntryPointState extends State<EntryPoint> {
       // app. The only way to change the permission's status now is to let the
       // user manually enable it in the system settings.
       openAppSettings();
-    }
-    else if (status.isDenied){
+    } else if (status.isDenied) {
       status = await Permission.notification.request();
 
       if (status.isGranted) {
@@ -104,7 +62,6 @@ class _EntryPointState extends State<EntryPoint> {
         // Handle this case appropriately, e.g., by showing a snackbar or dialog
         // that guides the user to app settings to enable notifications manually.
       }
-
     }
     setState(() {
       areNotificationsEnabled = true;
@@ -115,8 +72,9 @@ class _EntryPointState extends State<EntryPoint> {
   Widget build(BuildContext context) {
     var ob = myCustomNav(page);
 
-    return FocusScope( //I used focus scope to update the state of Listview (which is inside the body of this scaffold) whenever
-      //the user add a new element (leaves the add element pop up card)
+    return FocusScope(
+        //I used focus scope to update the state of Listview (which is inside the body of this scaffold) whenever
+        //the user add a new element (leaves the add element pop up card)
         onFocusChange: (hasFocus) {
           if (hasFocus) {
             setState(() {}); // Reload items when regaining focus
@@ -241,13 +199,10 @@ class _EntryPointState extends State<EntryPoint> {
                               trailing: Switch(
                                 value: areNotificationsEnabled,
                                 onChanged: (value) {
-
                                   setState(() {
                                     areNotificationsEnabled = value;
                                   });
                                   saveNotf(value);
-
-
                                 },
                               )),
                         ),
@@ -259,8 +214,7 @@ class _EntryPointState extends State<EntryPoint> {
                   padding: const EdgeInsets.all(10.0),
                   child: Align(
                     alignment: Alignment.center,
-                    child: Image.asset(
-                        'assets/images/meme.png'),
+                    child: Image.asset('assets/images/meme.png'),
                   ),
                 ),
 
@@ -300,9 +254,8 @@ class _EntryPointState extends State<EntryPoint> {
                     color: Colors.white,
                   ),
                   onPressed: () {
-                    //mydebug(); todo remove
                     showModalBottomSheet(
-                      backgroundColor: Colors.deepPurple,
+                      backgroundColor: Color.fromRGBO(31, 17, 55, 1),
                       context: context,
                       builder: (context) => Builder(
                         builder: (context) => PopupCard(),
@@ -314,14 +267,10 @@ class _EntryPointState extends State<EntryPoint> {
               : null,
         )));
   }
-
-  void mydebug() async{//todo remove
-    try{await Permission.notification.request(); }//todo remove
-    catch(e){print("something bad happened here");}
-    print("i did the thing");
-  }
 }
-void saveNotf(bool x) async { //save notification to Sharedpref
+
+void saveNotf(bool x) async {
+  //save notification to Sharedpref
   final SharedPreferences prefs = await SharedPreferences.getInstance();
   await prefs.setBool('allowed', x);
 }

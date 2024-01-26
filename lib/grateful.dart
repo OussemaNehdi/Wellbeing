@@ -18,7 +18,8 @@ class _GratefulState extends State<Grateful> {
     _loadItems(); //get the items from Sharedpref
   }
 
-  Future<void> saveItems() async {//save items to Sharedpref (when deleting)
+  Future<void> saveItems() async {
+    //save items to Sharedpref (when deleting)
     final prefs = await SharedPreferences.getInstance();
     List<String> itemsToSave = [];
     List<String> itemsToSaveF = [];
@@ -49,7 +50,8 @@ class _GratefulState extends State<Grateful> {
     setState(() {});
   }
 
-  void _deleteItem(int index) {//delete item and save at the same time to Sharedpref
+  void _deleteItem(int index) {
+    //delete item and save at the same time to Sharedpref
     items.removeAt(index);
     saveItems();
     setState(() {});
@@ -74,8 +76,7 @@ class _GratefulState extends State<Grateful> {
                 return Card(
                     elevation: 8,
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(
-                          12),
+                      borderRadius: BorderRadius.circular(12),
                     ),
                     child: ListTile(
                       title: Text(item.text),

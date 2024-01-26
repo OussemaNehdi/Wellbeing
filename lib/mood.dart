@@ -15,19 +15,14 @@ class Mood extends StatefulWidget {
 class _MoodState extends State<Mood> {
   int j = 0;
 
-  List<int> xValues = [
-    1,
-    2,
-    3,
-    4,
-    5
-  ];
-  List<int> yValues = [3, 5, 0, 2, 1];//theese two lists are a demo
-  List<ChartData> chartData = [];//the real data
+  List<int> xValues = [1, 2, 3, 4, 5];
+  List<int> yValues = [3, 5, 0, 2, 1]; //theese two lists are a demo
+  List<ChartData> chartData = []; //the real data
 
   double moodRating = 0;
 
-  Future<void> chart_animation() async {//to show the real data after showing the demo
+  Future<void> chart_animation() async {
+    //to show the real data after showing the demo
     await Future.delayed(Duration(milliseconds: 1800));
 
     final SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -45,22 +40,14 @@ class _MoodState extends State<Mood> {
       // set the real chart data
     });
   }
-  void empty() async{ //todo delete this
-    final SharedPreferences prefs =
-        await SharedPreferences.getInstance();
-    prefs.setStringList("chartData", []);
-
-    print("done");
-    //exit(0);
-  }
 
   @override
   void initState() {
-    //empty(); //todo delete
     super.initState();
 
     for (int i = 0; i < xValues.length; i++) {
-      chartData.add(ChartData(x: xValues[i], y: yValues[i]));//fill with the demo data
+      chartData.add(
+          ChartData(x: xValues[i], y: yValues[i])); //fill with the demo data
     }
     chart_animation();
   }
@@ -120,10 +107,8 @@ class _MoodState extends State<Mood> {
                 padding: const EdgeInsets.only(top: 15.0),
                 child: ElevatedButton(
                   onPressed: () async {
-
                     final SharedPreferences prefs =
                         await SharedPreferences.getInstance();
-
 
                     List<String> chartDataStrings = [];
 
@@ -136,8 +121,6 @@ class _MoodState extends State<Mood> {
                     setState(() {
                       chartData.add(ChartData(x: j, y: moodRating.toInt()));
                     });
-
-
                   },
                   child: Text(
                     "Track Mood",
@@ -151,25 +134,24 @@ class _MoodState extends State<Mood> {
             ],
           ),
         ),
-
-    StatefulBuilder(builder: (context, setState) {
-    return SfCartesianChart(
-          primaryXAxis: NumericAxis(),
-          primaryYAxis: NumericAxis(
-            interval: 1,
-            labelFormat: '{value}',
-          ),
-          series: <AreaSeries<ChartData, int>>[
-            AreaSeries<ChartData, int>(
-              dataSource: chartData,
-              xValueMapper: (ChartData data, _) => data.x,
-              yValueMapper: (ChartData data, _) => data.y,
-              markerSettings: MarkerSettings(isVisible: true),
-              color: Color.fromRGBO(31, 17, 55, 1),
+        StatefulBuilder(builder: (context, setState) {
+          return SfCartesianChart(
+            primaryXAxis: NumericAxis(),
+            primaryYAxis: NumericAxis(
+              interval: 1,
+              labelFormat: '{value}',
             ),
-          ],
-        );}),
-
+            series: <AreaSeries<ChartData, int>>[
+              AreaSeries<ChartData, int>(
+                dataSource: chartData,
+                xValueMapper: (ChartData data, _) => data.x,
+                yValueMapper: (ChartData data, _) => data.y,
+                markerSettings: MarkerSettings(isVisible: true),
+                color: Color.fromRGBO(31, 17, 55, 1),
+              ),
+            ],
+          );
+        }),
         Padding(
           padding: const EdgeInsets.all(20.0),
           child: AnimatedTextKit(
@@ -189,8 +171,8 @@ class _MoodState extends State<Mood> {
 }
 
 class ChartData {
-  final int x;//x axis
-  final int y;//y axis which is the mood rating
+  final int x; //x axis
+  final int y; //y axis which is the mood rating
 
   ChartData({required this.x, required this.y});
 }
