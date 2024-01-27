@@ -106,8 +106,8 @@ void callbackDispatcher() {
       );
       notifications.show(
         2,
-        "My app notification title",
-        "This is the notification body",
+        "Wellbeing",
+        "Your daily reminder",
         NotificationDetails(
           android: AndroidNotificationDetails(
             "channel_id",
@@ -117,7 +117,7 @@ void callbackDispatcher() {
             styleInformation: BigTextStyleInformation(
               randomTip,
               contentTitle: "Don't forget to be grateful for",
-              summaryText: "Well beingx",
+              summaryText: "Well being",
             ),
           ),
         ),
