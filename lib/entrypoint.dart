@@ -10,7 +10,7 @@ import 'popupcard.dart';
 //the top app bar and the bottom navigation bar across different screens (I used Gnav bottom navigation bar for aesthetics) )
 
 bool areNotificationsEnabled =
-    true; //the notification bell by default is false until the user accept the notification permission
+    true; //the notification bell by default is true
 
 class EntryPoint extends StatefulWidget {
   const EntryPoint({super.key});
