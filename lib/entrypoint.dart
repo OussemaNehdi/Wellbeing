@@ -28,7 +28,7 @@ class _EntryPointState extends State<EntryPoint> {
     super.initState();
 
     getNotf();
-    //setNotfParm();
+    
   }
 
   Future<void> getNotf() async {
@@ -218,7 +218,7 @@ class _EntryPointState extends State<EntryPoint> {
               ],
             ),
           ),
-          floatingActionButton: (page == 0) //`will pop up the pop up card
+          floatingActionButton: (page == 0) //`will pop the pop up card
               ? FloatingActionButton(
                   backgroundColor: Color.fromRGBO(31, 17, 55, 1),
                   child: Icon(
