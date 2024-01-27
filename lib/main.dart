@@ -18,19 +18,12 @@ void main() async {
   runApp(MyApp(isFirstLaunchx: isFirstLaunchx));
 
   //Start the Workmanager that will schedule a notification every while
-  List<String> listString =
-      []; //String representation of the items the user is grateful for (Workmanager doesn't accept non native list)
-  for (int i = 0; i < items.length; i++) {
-    listString.add(items[i].text);
-  }
-  await Workmanager().initialize(callbackDispatcher,
-      isInDebugMode:
-          false); //init and call the workmanager passing the items as input
+
+  await Workmanager().initialize(callbackDispatcher, isInDebugMode: false);
   Workmanager().registerPeriodicTask(
     "tips",
     "tipsTag",
     frequency: Duration(seconds: 10),
-    inputData: {"listString": listString},
   );
   ////////////////////////////////////////////
 }
