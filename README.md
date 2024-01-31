@@ -7,7 +7,7 @@ Wellbeing is not just a mental health app; it's a companion on your journey to a
 
 **Key Features:**
 
-- **Unique gratitude experience:** Document the things you're grateful for, and let the app surprise you with periodic notifications, gently reminding you of the positivity in your life. (MAKE SURE NOTIFICATIONS IS ENABLED FROM DRAWER AND SETTINGS)
+- **Unique gratitude experience:** Document the things you're grateful for, and let the app surprise you with periodic notifications, gently reminding you of the positivity in your life. (MAKE SURE NOTIFICATIONS ARE ENABLED FROM DRAWER AND SETTINGS)
 - **Empowering Tips:** Access over 100 tips to enhance your mental well-being.
 - **Mood Tracking:** Gain insights into your emotional well-being and manage your mood effectively.
 - **Emergency Call Feature:** In critical situations, easily launch direct calls for emergencies or suicide prevention.
