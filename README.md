@@ -1,4 +1,4 @@
-# Wellbeing App (Fully functional)(Designed for Pixel 4XL API 30 Android 12 )
+# Wellbeing App
 ![final2](https://github.com/OussemaNehdi/Wellbeing/assets/157837589/61d2b1e4-f848-4aea-8b3e-1888ee9ffec6)
 
 **Introduction:**
@@ -16,7 +16,6 @@ Wellbeing is not just a mental health app; it's a companion on your journey to a
 Embark on your wellness journey with our app's comprehensive mental health companion designed for simplicity, accessibility, and a happier, healthier you. Welcome to a world where your mental well-being takes center stage.
 
 # Compatibility
-(Fully functional)(Designed for Pixel 4XL API 30 Android 12 (the emulator used on android club tutorials by amine))
 **Android Version:**
 Wellbeing App is designed to target Android 12 (API level 30) for optimal performance and feature integration. Please note that the notification behavior of the app may not work as expected if your device is not running Android 12 (API level 30) or earlier.
 
