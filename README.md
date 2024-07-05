@@ -1,10 +1,6 @@
 # Wellbeing App
 ![final2](https://github.com/OussemaNehdi/Wellbeing/assets/157837589/61d2b1e4-f848-4aea-8b3e-1888ee9ffec6)
 
-**Introduction:**
-
-Wellbeing is not just a mental health app; it's a companion on your journey to a healthier, more balanced life. In a world that often feels hectic, our app serves as a sanctuary for your mental health, offering simplicity and accessibility at its core.
-
 **Key Features:**
 
 - **Unique gratitude experience:** Document the things you're grateful for, and let the app surprise you with periodic notifications, gently reminding you of the positivity in your life. (MAKE SURE NOTIFICATIONS ARE ENABLED FROM DRAWER AND SETTINGS)
